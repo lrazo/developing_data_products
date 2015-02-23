@@ -1,0 +1,378 @@
+---
+title       : Synthesis Test on JT1 2014
+subtitle    : 
+author      : Luis Razo
+job         : 
+framework   : revealjs      # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+--- .class #id .background "#006600" 
+## Synthesis Test on JT1 2014
+
+Luis Razo
+
+`r Sys.Date()`
+
+--- .class #id .background "#006600" 
+
+## Synopsis
+
+The present analysis consider the most relevant test that have been performed over the JT1 system evaluating the performance, we consider the date of the test and the evolution of the results on the time.
+
+--- .class #id 
+
+## Base scenario
+
+```{r echo=FALSE, }
+
+path        <- ".\\test\\TestPlanner\\synopsis\\"
+filePatrn   <- c("Test_","_WS_on_users_","_","_","_autounset_","_",".csv")
+systems     <- c("JT1")
+usersTo     <- 1
+usersIncr   <- 1
+users       <- c(100)
+ramups      <- c(500)
+times       <- c(45)
+requests    <- 40
+models      <- c("KB_GCR_NW_CB")
+versions    <- c("141023.0")
+setDefaults <- c("true")
+autounsets  <- c("true")
+tempRequest <- "2"
+
+quantities <- c(20)
+```
+The scenario is composed by 40 setCstic. 
+
+
+Data acquisition
+
+
++ Using JMeter
+
+- Systems:              `r systems`
+    
+- Model(alias):         `r models`
+
+- Version:              `r versions`
+
+- AutoUnset:            `r autounsets`
+
+- defaultValues:        `r setDefaults`
+
+
+
+--- .class #id 
+
+## Base scenario
+
++ setCstic using the following parameters at each request:
+
+```{r showtable1, results="asis", echo=FALSE}
+library(xtable)
+setwd(".")
+fileName <- ".\\testScenario.csv"
+scenario <- read.csv(fileName, sep = ";", colClasses = c("character","character","character"))
+xscenario <- xtable(scenario[1:12,])
+print(xscenario, type = "html", row.names=F)
+```
+
+--- .class #id 
+
+## Base scenario
+
+```{r showtable1x, results="asis", echo=FALSE}
+xscenario <- xtable(scenario[13:25,])
+print(xscenario, type = "html", row.names=F)
+
+```
+
+--- .class #id 
+
+## Base scenario
+
+```{r showtable1y, results="asis", echo=FALSE}
+xscenario <- xtable(scenario[25:37,])
+print(xscenario, type = "html", row.names=F)
+
+```
+
+--- .class #id 
+
+## Base scenario
+
+```{r showtable1z, results="asis", echo=FALSE}
+xscenario <- xtable(scenario[37:40,])
+print(xscenario, type = "html", row.names=F)
+
+```
+
+
+--- .class #id 
+
+## Base scenario
+
++ deleteConfig at the end.
+
+
+--- .class #id 
+
+## Results all tests
+
+```{r showtable2, echo=FALSE, cache=TRUE}
+fileNames <- list.files(path = path)
+#fileNames <- paste(path,list.files(path = path),sep="")
+#df <- data.frame(file.info(fileNames)$mtime, fileName )
+table <- c()
+for(fileName in fileNames){
+    fileToRead <- paste(path,fileName,sep="")
+    if(file.exists(fileToRead)){
+        ttable <- read.csv(fileToRead,header = F)        
+        ttable[[1]] <- as.POSIXct(as.numeric(substring(ttable[[1]],1,nchar(ttable[[1]])-3)), origin="1970-01-01")
+        colnames(ttable) <- c("StartTime","SampleTimeMS","RequestNumber","HTTPResponse","Response","ThreadName",
+                              "HTTPText","Status","Bytes","Latency")
+        
+        totalRows <- nrow(ttable)
+        ttable <- ttable[ttable$SampleTimeMS < 60000,]
+        rowsError <- totalRows - nrow(ttable)
+        noclicks <- nrow(ttable)
+        
+        x <- aggregate(. ~ RequestNumber, data=ttable[c(2,3,9)], mean)
+        
+        
+        
+        x$min <- aggregate(. ~ RequestNumber, data=ttable[c(2,3)], min)[[2]]
+        x$max <- aggregate(. ~ RequestNumber, data=ttable[c(2,3)], max)[[2]]
+        x$sd <- aggregate(. ~ RequestNumber, data=ttable[c(2,3)], sd )[[2]]
+        #x$totalreq <- agregate(. ~ RequestNumber, data=ttable[c(2,3)], sum )[[2]]
+        
+        for( i in 1:length(x$sd))
+        if(is.na(x$sd[i])){
+            x$sd[i] <- 0
+        }
+        
+        x[[1]] <- as.numeric(x[[1]])
+        x[[2]] <- x[[2]] 
+        #x$createTime <- file.info(fileName)$mtime
+        x$fileName <- fileName
+        #strsplit(x = fileName,"[_]")
+        x$createTimeX <- ttable$StartTime[1]
+        x$totalClicks <- nrow(ttable)
+        x$rowsError <- rowsError
+        
+         if(grepl("autounset",fileName)){            
+            x$users <- gsub("Test_JT1_(\\d{1,4})_KB_.*\\.SIMPLE_\\d{1,2}_\\d{1,2}_\\d{6}\\.\\d{1}_autounset_\\w{4,5}_\\d{8}_\\d{6}_\\d{1,4}.csv", "\\1", c(fileName))
+            x$model <- gsub("Test_JT1_\\d{1,4}_(KB_.*)\\.SIMPLE_\\d{1,2}_\\d{1,2}_\\d{6}\\.\\d{1}_autounset_\\w{4,5}_\\d{8}_\\d{6}_\\d{1,4}.csv", "\\1", c(fileName))
+            x$version <- gsub("Test_JT1_\\d{1,4}_KB_.*\\.SIMPLE_\\d{1,2}_\\d{1,2}_(\\d{6}\\.\\d{1})_autounset_\\w{4,5}_\\d{8}_\\d{6}_\\d{1,4}.csv", "\\1", c(fileName))
+            x$defaultVals <- gsub("Test_JT1_\\d{1,4}_KB_.*\\.SIMPLE_(\\d{1,2})_\\d{1,2}_\\d{6}\\.\\d{1}_autounset_\\w{4,5}_\\d{8}_\\d{6}_\\d{1,4}.csv", "\\1", c(fileName))
+            x$modelAlias <- gsub("Test_JT1_\\d{1,4}_(KB_.*\\.SIMPLE_\\d{1,2}_\\d{1,2})_\\d{6}\\.\\d{1}_autounset_\\w{4,5}_\\d{8}_\\d{6}_\\d{1,4}.csv", "\\1", c(fileName))
+            x$autounset <- gsub("Test_JT1_\\d{1,4}_KB_.*\\.SIMPLE_\\d{1,2}_\\d{1,2}_\\d{6}\\.\\d{1}_autounset_(\\w{4,5})_\\d{8}_\\d{6}_\\d{1,4}.csv", "\\1", c(fileName))
+            x$ramup <- gsub("Test_JT1_\\d{1,4}_KB_.*\\.SIMPLE_\\d{1,2}_\\d{1,2}_\\d{6}\\.\\d{1}_autounset_\\w{4,5}_\\d{8}_\\d{6}_(\\d{1,4}).csv", "\\1", c(fileName))
+            x$times <- "unknown"
+            x$setDefaults <- "unknown"
+        }else{
+            x$users <- gsub("Test_JT1_(\\d{1,4})_\\d{1,4}_\\d{1,4}_KB_.*\\.SIMPLE_\\d{1,2}_\\d{1,2}_\\d{6}\\.\\d{1}_\\w{4,5}_\\w{4,5}_{0,1}\\d{0,2}.csv", "\\1", c(fileName))
+            x$model <- gsub("Test_JT1_\\d{1,4}_\\d{1,4}_\\d{1,4}_(KB_.*)\\.SIMPLE_\\d{1,2}_\\d{1,2}_\\d{6}\\.\\d{1}_\\w{4,5}_\\w{4,5}_{0,1}\\d{0,2}.csv", "\\1", c(fileName))
+            x$version <- gsub("Test_JT1_\\d{1,4}_\\d{1,4}_\\d{1,4}_KB_.*\\.SIMPLE_\\d{1,2}_\\d{1,2}_(\\d{6}\\.\\d{1})_\\w{4,5}_\\w{4,5}_{0,1}\\d{0,2}.csv", "\\1", c(fileName))
+            x$modelAlias <- gsub("Test_JT1_\\d{1,4}_\\d{1,4}_\\d{1,4}_(KB_.*\\.SIMPLE_\\d{1,2}_\\d{1,2})_\\d{6}\\.\\d{1}_\\w{4,5}_\\w{4,5}_{0,1}\\d{0,2}.csv", "\\1", c(fileName))
+            x$autounset <- gsub("Test_JT1_\\d{1,4}_\\d{1,4}_\\d{1,4}_KB_.*\\.SIMPLE_\\d{1,2}_\\d{1,2}_\\d{6}\\.\\d{1}_\\w{4,5}_(\\w{4,5})_{0,1}\\d{0,2}.csv", "\\1", c(fileName))
+            x$setDefaults <- gsub("Test_JT1_\\d{1,4}_\\d{1,4}_\\d{1,4}_KB_.*\\.SIMPLE_\\d{1,2}_\\d{1,2}_\\d{6}\\.\\d{1}_(\\w{4,5})_\\w{4,5}_{0,1}\\d{0,2}.csv", "\\1", c(fileName))
+            x$ramup <- gsub("Test_JT1_\\d{1,4}_(\\d{1,4})_\\d{1,4}_KB_.*\\.SIMPLE_\\d{1,2}_\\d{1,2}_\\d{6}\\.\\d{1}_\\w{4,5}_\\w{4,5}_{0,1}\\d{0,2}.csv", "\\1", c(fileName))
+            x$times <- gsub("Test_JT1_\\d{1,4}_\\d{1,4}_(\\d{1,4})_KB_.*\\.SIMPLE_\\d{1,2}_\\d{1,2}_\\d{6}\\.\\d{1}_\\w{4,5}_\\w{4,5}_{0,1}\\d{0,2}.csv", "\\1", c(fileName))
+            x$defaultVals <- gsub("Test_JT1_\\d{1,4}_\\d{1,4}_\\d{1,4}_KB_.*\\.SIMPLE_(\\d{1,2})_\\d{1,2}_\\d{6}\\.\\d{1}_\\w{4,5}_\\w{4,5}_{0,1}\\d{0,2}.csv", "\\1", c(fileName))
+        }
+        x$diffTimeMins <- difftime(ttable[nrow(ttable),1], ttable[1,1],units = "mins")
+        x$confPerHour <- (x$totalClicks/41) * 60 / as.numeric(difftime(ttable[nrow(ttable),1], ttable[1,1],units = "mins"))
+        x$fileData <- paste("Users: ", x$users, "\n\n Model: ",x$model,"\n\t Version: ",x$version, "\n\n  defaultValues: ", x$defaultVals, "\n\n autounset: ", x$autounset, "\n\t setDefaults: ", x$setDefaults, "\n\n ramup: ", x$ramup, "\n\t times: ", x$times, "\n\n Errors: ", x$rowsError,"\n\t Clicks: ", x$totalClicks,"\n\n Configurations: ", round(as.numeric((x$totalClicks/41)),0) ,"\n\nThe test started at ", ttable[1,1] ," and finished at ", ttable[nrow(ttable),1],"\n\n","Therefore the total duration was around ", round(x$diffTimeMins,0)," minutes.\n\n","The number of configurations by hour was around ", round(x$confPerHour,0)," \n\n", sep="")
+        #x$system  <- sys          
+        #x$model   <- model
+        #x$version <- version
+        #x$users   <- user
+        ##x$time    <- time
+        #x$setDefault <- setDefault
+        #x$autounset  <- autounset
+        #x$ramup  <- ramup
+        #x$model <- model
+        #x$version <- version
+        #x$autounset <- autounset
+        table <- rbind(table,x)                                
+    }
+    
+}
+ 
+```
+
+```{r, fig.width= 12, fig.height= 7, echo=FALSE, warning=F,results='asis'}
+    library(grid)    
+    library(ggplot2)
+    library(reshape2)
+    library(ggthemes)
+    library(scales)
+    
+
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  require(grid)
+
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+
+  numPlots = length(plots)
+
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                    ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+
+ if (numPlots==1) {
+    print(plots[[1]])
+
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
+}
+```
+
+
+```{r, echo=FALSE, warning=F}
+table <- table[order(table$createTimeX),]
+table$createTimeF <- as.factor(table$createTimeX)
+table$fileNameF <- as.factor(table$fileName)
+table$confPerHourF <- as.factor(round(table$confPerHour,0))
+table$usersF <- as.factor(as.numeric(table$users))
+table$diffTimeMinsF <- as.factor(round(table$diffTimeMins,0))
+table$totalClicksF <- as.factor(as.numeric(table$totalClicks))
+table$totalConf <- as.factor(round(as.numeric(table$totalClicks/41),0))
+```
+
+```{r, echo=FALSE, warning=F}
+table$fileDate <- paste(table$fileNameF," \n ",table$createTimeF,sep = "")
+write.csv(table,"table.csv")
+colours <- scales::hue_pal()(length(unique(table$fileDate)))
+#colours <- c(colours,scales::hue_pal()(length(unique(table$fileDate))))
+cols <- c("st" = "black","max"="green","min"="orange","15"="red","30"="blue","sd"="purple")
+```
+
+```{r, echo=FALSE, warning=F,results='asis', fig.width= 12, fig.height= 7}
+ggplot(aes(y=SampleTimeMS,x=RequestNumber,colour=createTimeF),data=table) + geom_line(aes(group=createTimeF),size=0.75,)  + xlim(0,41) + ylim(0,6000) +
+    ylab("Sample Time (ms)") + xlab("Request Number") + guides(col=guide_legend(ncol=5)) + ggtitle("All Tests") + scale_color_manual(name = "Test date",values = colours) + guides(fill=guide_legend(title="Request Number")) + theme(legend.position="bottom") 
+```
+
+--- .class #id 
+
+## Results all tests
+
+```{r, echo=FALSE, warning=F,results='asis', fig.width= 12, fig.height= 7}
+ggplot(aes(y=confPerHourF,x=createTimeF,colour=createTimeF),data=table) + geom_point(aes(colour = createTimeF)) +
+    ylab("Conf/Hour") + xlab("Date of Test") + ggtitle("Conf/Hour per Test") + theme(legend.position="bottom") + guides(col=guide_legend(ncol=5)) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + scale_colour_hue(name ="Test date")
+```
+
+--- .class #id 
+
+## Results all tests
+
+```{r, echo=FALSE, warning=F,results='asis', fig.width= 12, fig.height= 7}
+ggplot(aes(y=confPerHourF,x=usersF,colour=createTimeF),data=table) + geom_point(aes(colour = createTimeF)) +
+    ylab("Conf/Hour") + xlab("Num Users") + ggtitle("Conf/Hour per Num of Users (Color by test date)") + theme(legend.position="bottom") + guides(col=guide_legend(ncol=5)) + scale_colour_hue(name ="Test date")
+```
+
+--- .class #id 
+
+## Results all tests
+
+```{r, echo=FALSE, warning=F,results='asis', fig.width= 12, fig.height= 7}
+ggplot(aes(y=confPerHourF,x=diffTimeMinsF,colour=createTimeF),data=table) + geom_point(aes(colour = createTimeF)) +
+    ylab("Conf/Hour") + xlab("Duration (mins)") + ggtitle("Conf/Hour per Test Duration (Color by test date)") + theme(legend.position="bottom") + guides(col=guide_legend(ncol=5)) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + scale_colour_hue(name ="Test date")
+```
+
+
+--- .class #id 
+
+## Results all tests
+
+```{r, echo=FALSE, warning=F,results='asis', fig.width= 12, fig.height= 7}
+ggplot(aes(y=confPerHourF,x=diffTimeMinsF,colour=usersF),data=table) + geom_point(aes(colour = usersF)) +
+    ylab("Conf/Hour") + xlab("Duration (mins)") + ggtitle("Conf/Hour per Test Duration (Color by Num Users)") + theme(legend.position="bottom") + guides(col=guide_legend(ncol=6)) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + scale_colour_hue(name ="Num of Users")
+```
+
+--- .class #id 
+
+## Results all tests
+
+```{r, echo=FALSE, warning=F,results='asis', fig.width= 12, fig.height= 7}
+ggplot(aes(y=confPerHourF,x=totalClicksF,colour=createTimeF),data=table) + geom_point(aes(colour = createTimeF)) +
+    ylab("Conf/Hour") + xlab("Num clicks") + ggtitle("Conf/Hour per Num of Clicks (Color by test date)") + theme(legend.position="bottom") + guides(col=guide_legend(ncol=6)) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + scale_colour_hue(name ="Test date")
+```
+
+--- .class #id 
+
+## Results all tests
+
+```{r, echo=FALSE, warning=F,results='asis', fig.width= 12, fig.height= 7}
+ggplot(aes(y=diffTimeMinsF,x=totalConf,colour=usersF),data=table) + geom_point(aes(colour = usersF)) +
+    ylab("Duration (mins)") + xlab("Num Confs") + ggtitle("Duration per Num of Confs (Color by Num Users)") + theme(legend.position="bottom") + guides(col=guide_legend(ncol=6)) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + scale_colour_hue(name ="Num of Users")
+```
+
+--- .class #id 
+
+## Results all tests
+
+```{r, echo=FALSE, warning=F,results='asis', fig.width= 12, fig.height= 7}
+ggplot(aes(y=usersF,x=diffTimeMinsF,colour=confPerHourF),data=table) + geom_point(aes(colour = confPerHourF)) +
+    ylab("Num Users") + xlab("Duration (mins)") + ggtitle("Num Users per Test Duration (Color by Conf/Hour)") + theme(legend.position="bottom") + guides(col=guide_legend(ncol=6)) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + scale_colour_hue(name ="Conf/Hour")
+
+```
+
+
+```{r, echo=FALSE, warning=F,results='asis', fig.width= 12, fig.height= 7}
+colour <- 0
+counter <- 0
+lenRes <- length(unique(table$fileDate)) * 2
+for( value in unique(table$fileDate) ){
+    currentData <- table[table$fileDate == value,]
+    colour <- colour + 1
+    g <- ggplot(aes(y=SampleTimeMS,x=RequestNumber,colour=colours[colour]),data=currentData) + xlim(0,41) + 
+    ylab("Sample Time (ms)") + xlab("Request Number") + guides(fill=guide_legend(title="Request Number")) +  theme(plot.title = element_text(size = rel(0.75))) + scale_color_manual(name = "",values = c(colours[colour], "sampleTime"= colours[colour],"max"="green","min"="orange","sd"="purple"))
+    
+    pnormal <- g + labs(title = value) + geom_line(aes(group=fileNameF, colour = "sampleTime"), size=0.75) + ylim(0,6000) + theme(legend.position="none")
+    
+    pmaxmin <- g + labs(title = "Max & min limit values") + geom_line(aes(group=fileNameF, colour = "sampleTime"), size=0.75) + ylim(0,max(currentData$max)) +  geom_line(aes(x = RequestNumber, y = max,colour="max")) + geom_line(aes(x = RequestNumber, y = min,colour="min")) + theme(legend.position="bottom") + guides(col=guide_legend(nrow=1)) 
+
+    psd <- g + labs(title = "+/- Standard Deviation") + geom_line(aes(group=fileNameF, colour = "sampleTime"), size=0.75) + ylim(0,max(currentData$SampleTime + currentData$sd))  + geom_line(aes(x = RequestNumber, y = SampleTimeMS - sd ,colour="sd")) +geom_line(aes(x = RequestNumber, y = SampleTimeMS + sd ,colour="sd")) + theme(legend.position="bottom") + guides(col=guide_legend(nrow=1))
+    
+    counter <- counter + 1
+    cat("\n\n--- .class #id \n")
+    cat(paste("\n\n## Test case ",currentData$createTimeF[1]," \n\n",sep=""))
+    cat(currentData$fileData[1])    
+    
+    counter <- counter + 1
+    cat("\n\n--- .class #id \n")
+    cat(paste("\n\n## Test case ",currentData$createTimeF[1]," \n\n",sep=""))
+    print(pnormal)
+    
+    counter <- counter + 1
+    cat("\n\n--- .class #id \n")
+    cat(paste("\n\n## Test case ",currentData$createTimeF[1]," \n\n",sep=""))
+    #cat(paste("\n\n## Results (",counter,"/",lenRes,")\n\n",value,sep=""))
+    multiplot(pmaxmin, psd, cols=2)
+}
+```

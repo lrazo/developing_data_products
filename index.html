@@ -1,0 +1,1200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Synthesis Test on JT1 2014</title>
+  <meta name="description" content="">
+  <meta name="author" content="Luis Razo">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/theme/default.css" id="theme">
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class='' data-state='' id='slide-1' data-background=''>
+  
+  
+</section>
+<section class='class background' data-state='' id='id' data-background=''>
+  <h2>Synthesis Test on JT1 2014</h2>
+  <p>Luis Razo</p>
+
+<p>2015-02-23</p>
+
+</section>
+<section class='class background' data-state='' id='id' data-background=''>
+  <h2>Synopsis</h2>
+  <p>The present analysis consider the most relevant test that have been performed over the JT1 system evaluating the performance, we consider the date of the test and the evolution of the results on the time.</p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Base scenario</h2>
+  <p>The scenario is composed by 40 setCstic. </p>
+
+<p>Data acquisition</p>
+
+<ul>
+<li><p>Using JMeter</p></li>
+<li><p>Systems:              JT1</p></li>
+<li><p>Model(alias):         KB_GCR_NW_CB</p></li>
+<li><p>Version:              141023.0</p></li>
+<li><p>AutoUnset:            true</p></li>
+<li><p>defaultValues:        true</p></li>
+</ul>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Base scenario</h2>
+  <ul>
+<li>setCstic using the following parameters at each request:</li>
+</ul>
+
+<!-- html table generated in R 3.1.2 by xtable 1.7-4 package -->
+
+<!-- Mon Feb 23 01:03:34 2015 -->
+
+<table border=1>
+<tr> <th>  </th> <th> Bompath </th> <th> Characteristic </th> <th> Value </th>  </tr>
+  <tr> <td align="right"> 1 </td> <td> 0000 </td> <td> TARATED_CURRENT </td> <td> 250_A </td> </tr>
+  <tr> <td align="right"> 2 </td> <td> 00000010 </td> <td> TABREAKING_CAPACITY </td> <td> 65_KA_220_41_AC_IEC_60_00 </td> </tr>
+  <tr> <td align="right"> 3 </td> <td> 0000 </td> <td> T_POLES_DESCRIPTION </td> <td> 3P </td> </tr>
+  <tr> <td align="right"> 4 </td> <td> 00000020 </td> <td> T_TRIP_UNIT_NAME </td> <td> MICROLOGIC_2.0 </td> </tr>
+  <tr> <td align="right"> 5 </td> <td> 0000 </td> <td> TC_MOUNTING_MODE </td> <td> FIXED </td> </tr>
+  <tr> <td align="right"> 6 </td> <td> 0000 </td> <td> TC_MOUNTING_MODE_3 </td> <td> FRONT_CONNECTION </td> </tr>
+  <tr> <td align="right"> 7 </td> <td> 0000 </td> <td> TC_MOUNTING_MODE_4 </td> <td> FRONT_CONNECTION </td> </tr>
+  <tr> <td align="right"> 8 </td> <td> 0000 </td> <td> YN_COMMUNICATION </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 9 </td> <td> 0000 </td> <td> YN_CONTROL_AND_REMOTE_ON_OFF </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 10 </td> <td> 0000 </td> <td> YN_DOOR_FRAME_AND_ACCESSORIES </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 11 </td> <td> 0000 </td> <td> YN_INDICATION </td> <td> NO </td> </tr>
+  <tr> <td align="right"> 12 </td> <td> 0000 </td> <td> YN_LOCKING </td> <td> YES </td> </tr>
+   </table>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Base scenario</h2>
+  <!-- html table generated in R 3.1.1 by xtable 1.7-4 package -->
+
+<!-- Fri Jan 30 10:11:42 2015 -->
+
+<table border=1>
+<tr> <th>  </th> <th> Bompath </th> <th> Characteristic </th> <th> Value </th>  </tr>
+  <tr> <td align="right"> 13 </td> <td> 00000020 </td> <td> YN_LONG_TIME_RATING_PLUG </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 14 </td> <td> 000000200020 </td> <td> T_LONG_TIME_PICK_UP_ADJ_RANGE </td> <td> 0.4..0.8_X_IR </td> </tr>
+  <tr> <td align="right"> 15 </td> <td> 00000060 </td> <td> T_DEVICE_SHORT_NAME </td> <td> MODBUS_COM </td> </tr>
+  <tr> <td align="right"> 16 </td> <td> 00000060 </td> <td> YN_FDM121 </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 17 </td> <td> 00000060 </td> <td> YN_FDM_MOUNTING_ACCESSORY </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 18 </td> <td> 000000600030 </td> <td> T_DEVICE_SHORT_NAME </td> <td> CORD_L_=_0.35_M </td> </tr>
+  <tr> <td align="right"> 19 </td> <td> 00000070 </td> <td> YN_MCH_GEAR_MOTOR </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 20 </td> <td> 000000700010 </td> <td> TACONTROL_CIRCUIT_VOLTAGE </td> <td> 24..30_V_DC_00 </td> </tr>
+  <tr> <td align="right"> 21 </td> <td> 00000070 </td> <td> YN_XF_CLOSING_RELEASE </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 22 </td> <td> 000000700020 </td> <td> TACONTROL_CIRCUIT_VOLTAGE </td> <td> 12_V_DC_00 </td> </tr>
+  <tr> <td align="right"> 23 </td> <td> 00000070 </td> <td> YN_REMOTE_RESET_AFT_FAULT_TRIP </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 24 </td> <td> 000000700050 </td> <td> TACONTROL_CIRCUIT_VOLTAGE </td> <td> 110..130_V </td> </tr>
+  <tr> <td align="right"> 25 </td> <td> 00000070 </td> <td> YN_SHUNT_TRIP </td> <td> YES </td> </tr>
+   </table>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Base scenario</h2>
+  <!-- html table generated in R 3.1.1 by xtable 1.7-4 package -->
+
+<!-- Fri Jan 30 10:11:42 2015 -->
+
+<table border=1>
+<tr> <th>  </th> <th> Bompath </th> <th> Characteristic </th> <th> Value </th>  </tr>
+  <tr> <td align="right"> 25 </td> <td> 00000070 </td> <td> YN_SHUNT_TRIP </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 26 </td> <td> 000000700030 </td> <td> TACONTROL_CIRCUIT_VOLTAGE </td> <td> 12_V_DC_00 </td> </tr>
+  <tr> <td align="right"> 27 </td> <td> 00000070 </td> <td> YN_2ND_SHUNT_TRIP </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 28 </td> <td> 000000700070 </td> <td> TACONTROL_CIRCUIT_VOLTAGE </td> <td> 12_V_DC_00 </td> </tr>
+  <tr> <td align="right"> 29 </td> <td> 00000070 </td> <td> TC_READY_TO_CLOSE </td> <td> NOT_APPLICABLE </td> </tr>
+  <tr> <td align="right"> 30 </td> <td> 00000150 </td> <td> YN_DOOR_FRAME </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 31 </td> <td> 00000150 </td> <td> YN_BLANKING_PLATE </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 32 </td> <td> 00000090 </td> <td> YN_DEVICE_LOCKING </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 33 </td> <td> 000000900030 </td> <td> YN_DEVICE_LOCKING </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 34 </td> <td> 000000900030 </td> <td> T_DEVICE_SHORT_NAME </td> <td> PADLOCKING_DEVICE </td> </tr>
+  <tr> <td align="right"> 35 </td> <td> 000000900030 </td> <td> YN_PADLOCKING </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 36 </td> <td> 000000900030 </td> <td> YN_SWITCHBOARD_DOOR_INTERLOCK </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 37 </td> <td> 0000 </td> <td> YN_MANUAL_FRONT_CONNECTION_KIT </td> <td> YES </td> </tr>
+   </table>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Base scenario</h2>
+  <!-- html table generated in R 3.1.1 by xtable 1.7-4 package -->
+
+<!-- Fri Jan 30 10:11:42 2015 -->
+
+<table border=1>
+<tr> <th>  </th> <th> Bompath </th> <th> Characteristic </th> <th> Value </th>  </tr>
+  <tr> <td align="right"> 37 </td> <td> 0000 </td> <td> YN_MANUAL_FRONT_CONNECTION_KIT </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 38 </td> <td> 0000 </td> <td> YN_OPERATION_COUNTER </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 39 </td> <td> 0000 </td> <td> YN_FIXING_BRACKET </td> <td> YES </td> </tr>
+  <tr> <td align="right"> 40 </td> <td> 0000 </td> <td> YN_GROUNDING_KIT </td> <td> YES </td> </tr>
+   </table>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Base scenario</h2>
+  <ul>
+<li>deleteConfig at the end.</li>
+</ul>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Results all tests</h2>
+  <p><img src="assets/fig/unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Results all tests</h2>
+  <p><img src="assets/fig/unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Results all tests</h2>
+  <p><img src="assets/fig/unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Results all tests</h2>
+  <p><img src="assets/fig/unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Results all tests</h2>
+  <p><img src="assets/fig/unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Results all tests</h2>
+  <p><img src="assets/fig/unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Results all tests</h2>
+  <p><img src="assets/fig/unnamed-chunk-11-1.png" alt="plot of chunk unnamed-chunk-11"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Results all tests</h2>
+  <p><img src="assets/fig/unnamed-chunk-12-1.png" alt="plot of chunk unnamed-chunk-12"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-24 13:39:23</h2>
+  <p>Users: 1</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: true</p>
+
+<p>ramup: 30</p>
+
+<p>times: 30</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 41</p>
+
+<p>The test started at 2014-11-24 13:39:23 and finished at 2014-11-24 13:41:58</p>
+
+<p>Therefore the total duration was around 3 minutes.</p>
+
+<p>The number of configurations by hour was around 23 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-24 13:39:23</h2>
+  
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-24 13:39:23</h2>
+  <pre><code>## Loading required package: grid
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-13-1.png" alt="plot of chunk unnamed-chunk-13"> <img src="assets/fig/unnamed-chunk-13-2.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-24 13:42:06</h2>
+  <p>Users: 10</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: true</p>
+
+<p>ramup: 300</p>
+
+<p>times: 300</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 410</p>
+
+<p>The test started at 2014-11-24 13:42:06 and finished at 2014-11-24 13:49:17</p>
+
+<p>Therefore the total duration was around 7 minutes.</p>
+
+<p>The number of configurations by hour was around 84 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-24 13:42:06</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-3.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-24 13:42:06</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-4.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 10:19:21</h2>
+  <p>Users: 30</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: true</p>
+
+<p>ramup: 900</p>
+
+<p>times: 900</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 1230</p>
+
+<p>The test started at 2014-11-25 10:19:21 and finished at 2014-11-25 10:36:41</p>
+
+<p>Therefore the total duration was around 17 minutes.</p>
+
+<p>The number of configurations by hour was around 104 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 10:19:21</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-5.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 10:19:21</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-6.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 10:37:49</h2>
+  <p>Users: 50</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: true</p>
+
+<p>ramup: 1500</p>
+
+<p>times: 1500</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 2050</p>
+
+<p>The test started at 2014-11-25 10:37:49 and finished at 2014-11-25 11:05:15</p>
+
+<p>Therefore the total duration was around 27 minutes.</p>
+
+<p>The number of configurations by hour was around 109 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 10:37:49</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-7.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 10:37:49</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-8.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 11:14:29</h2>
+  <p>Users: 80</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: true</p>
+
+<p>ramup: 2400</p>
+
+<p>times: 2400</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 3280</p>
+
+<p>The test started at 2014-11-25 11:14:29 and finished at 2014-11-25 11:57:12</p>
+
+<p>Therefore the total duration was around 43 minutes.</p>
+
+<p>The number of configurations by hour was around 112 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 11:14:29</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-9.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 11:14:29</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-10.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 12:14:55</h2>
+  <p>Users: 20</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: true</p>
+
+<p>ramup: 600</p>
+
+<p>times: 600</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 820</p>
+
+<p>The test started at 2014-11-25 12:14:55 and finished at 2014-11-25 12:27:10</p>
+
+<p>Therefore the total duration was around 12 minutes.</p>
+
+<p>The number of configurations by hour was around 98 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 12:14:55</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-11.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 12:14:55</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-12.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 12:33:34</h2>
+  <p>Users: 100</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: true</p>
+
+<p>ramup: 3000</p>
+
+<p>times: 3000</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 4100</p>
+
+<p>The test started at 2014-11-25 12:33:34 and finished at 2014-11-25 13:26:27</p>
+
+<p>Therefore the total duration was around 53 minutes.</p>
+
+<p>The number of configurations by hour was around 113 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 12:33:34</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-13.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 12:33:34</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-14.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 15:02:14</h2>
+  <p>Users: 100</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: true</p>
+
+<p>ramup: 1500</p>
+
+<p>times: 1500</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 4100</p>
+
+<p>The test started at 2014-11-25 15:02:14 and finished at 2014-11-25 15:30:23</p>
+
+<p>Therefore the total duration was around 28 minutes.</p>
+
+<p>The number of configurations by hour was around 213 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 15:02:14</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-15.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-25 15:02:14</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-16.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-26 11:57:23</h2>
+  <p>Users: 400</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: true</p>
+
+<p>ramup: 4000</p>
+
+<p>times: 4000</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 16400</p>
+
+<p>The test started at 2014-11-26 11:57:23 and finished at 2014-11-26 13:14:08</p>
+
+<p>Therefore the total duration was around 77 minutes.</p>
+
+<p>The number of configurations by hour was around 313 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-26 11:57:23</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-17.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-26 11:57:23</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-18.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-26 13:20:27</h2>
+  <p>Users: 400</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 41</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: true</p>
+
+<p>ramup: 4000</p>
+
+<p>times: 4000</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 16400</p>
+
+<p>The test started at 2014-11-26 13:20:27 and finished at 2014-11-26 14:37:38</p>
+
+<p>Therefore the total duration was around 77 minutes.</p>
+
+<p>The number of configurations by hour was around 311 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-26 13:20:27</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-19.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-26 13:20:27</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-20.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-26 17:06:13</h2>
+  <p>Users: 400</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true_</p>
+
+<p>setDefaults: true</p>
+
+<p>ramup: 4000</p>
+
+<p>times: 4000</p>
+
+<p>Errors: 5</p>
+
+<p>Clicks: 21545</p>
+
+<p>The test started at 2014-11-26 17:06:13 and finished at 2014-11-26 18:58:30</p>
+
+<p>Therefore the total duration was around 112 minutes.</p>
+
+<p>The number of configurations by hour was around 281 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-26 17:06:13</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-21.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-26 17:06:13</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-22.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-27 10:07:31</h2>
+  <p>Users: 400</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 41</p>
+
+<p>autounset: true_</p>
+
+<p>setDefaults: true</p>
+
+<p>ramup: 4000</p>
+
+<p>times: 4000</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 32400</p>
+
+<p>The test started at 2014-11-27 10:07:31 and finished at 2014-11-27 11:35:35</p>
+
+<p>Therefore the total duration was around 88 minutes.</p>
+
+<p>The number of configurations by hour was around 538 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-27 10:07:31</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-23.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-11-27 10:07:31</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-24.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-12 21:13:49</h2>
+  <p>Users: 100</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 180</p>
+
+<p>times: 180</p>
+
+<p>Errors: 100</p>
+
+<p>Clicks: 86762</p>
+
+<p>The test started at 2014-12-12 21:13:49 and finished at 2014-12-12 22:30:52</p>
+
+<p>Therefore the total duration was around 77 minutes.</p>
+
+<p>The number of configurations by hour was around 1648 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-12 21:13:49</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-25.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-12 21:13:49</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-26.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-15 15:39:16</h2>
+  <p>Users: 100</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 3600</p>
+
+<p>times: 3600</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 8400</p>
+
+<p>The test started at 2014-12-15 15:39:16 and finished at 2014-12-15 16:41:55</p>
+
+<p>Therefore the total duration was around 63 minutes.</p>
+
+<p>The number of configurations by hour was around 196 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-15 15:39:16</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-27.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-15 15:39:16</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-28.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-15 17:26:44</h2>
+  <p>Users: 1000</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 3600</p>
+
+<p>times: 3600</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 42000</p>
+
+<p>The test started at 2014-12-15 17:26:44 and finished at 2014-12-15 18:28:18</p>
+
+<p>Therefore the total duration was around 62 minutes.</p>
+
+<p>The number of configurations by hour was around 998 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-15 17:26:44</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-29.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-15 17:26:44</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-30.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-16 11:15:55</h2>
+  <p>Users: 500</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 3600</p>
+
+<p>times: 3600</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 42000</p>
+
+<p>The test started at 2014-12-16 11:15:55 and finished at 2014-12-16 12:19:04</p>
+
+<p>Therefore the total duration was around 63 minutes.</p>
+
+<p>The number of configurations by hour was around 973 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-16 11:15:55</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-31.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-16 11:15:55</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-32.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-16 14:27:10</h2>
+  <p>Users: 22</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 3600</p>
+
+<p>times: 3600</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 41580</p>
+
+<p>The test started at 2014-12-16 14:27:10 and finished at 2014-12-16 16:38:29</p>
+
+<p>Therefore the total duration was around 131 minutes.</p>
+
+<p>The number of configurations by hour was around 463 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-16 14:27:10</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-33.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-16 14:27:10</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-34.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-16 21:46:22</h2>
+  <p>Users: 100</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 500</p>
+
+<p>times: 500</p>
+
+<p>Errors: 100</p>
+
+<p>Clicks: 80963</p>
+
+<p>The test started at 2014-12-16 21:46:22 and finished at 2014-12-16 22:59:29</p>
+
+<p>Therefore the total duration was around 73 minutes.</p>
+
+<p>The number of configurations by hour was around 1620 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-16 21:46:22</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-35.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-16 21:46:22</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-36.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-17 00:00:02</h2>
+  <p>Users: 80</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 400</p>
+
+<p>times: 400</p>
+
+<p>Errors: 80</p>
+
+<p>Clicks: 91638</p>
+
+<p>The test started at 2014-12-17 00:00:02 and finished at 2014-12-17 01:20:47</p>
+
+<p>Therefore the total duration was around 81 minutes.</p>
+
+<p>The number of configurations by hour was around 1661 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-17 00:00:02</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-37.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-17 00:00:02</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-38.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-17 04:30:07</h2>
+  <p>Users: 70</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 350</p>
+
+<p>times: 350</p>
+
+<p>Errors: 70</p>
+
+<p>Clicks: 88519</p>
+
+<p>The test started at 2014-12-17 04:30:07 and finished at 2014-12-17 05:50:37</p>
+
+<p>Therefore the total duration was around 80 minutes.</p>
+
+<p>The number of configurations by hour was around 1609 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-17 04:30:07</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-39.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-17 04:30:07</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-40.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-18 03:04:52</h2>
+  <p>Users: 100</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 140825.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 500</p>
+
+<p>times: 500</p>
+
+<p>Errors: 100</p>
+
+<p>Clicks: 86393</p>
+
+<p>The test started at 2014-12-18 03:04:52 and finished at 2014-12-18 03:59:57</p>
+
+<p>Therefore the total duration was around 55 minutes.</p>
+
+<p>The number of configurations by hour was around 2295 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-18 03:04:52</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-41.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-18 03:04:52</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-42.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-18 13:14:13</h2>
+  <p>Users: 100</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 141023.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 500</p>
+
+<p>times: 500</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 199220</p>
+
+<p>The test started at 2014-12-18 13:14:13 and finished at 2014-12-18 15:14:13</p>
+
+<p>Therefore the total duration was around 120 minutes.</p>
+
+<p>The number of configurations by hour was around 2430 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-18 13:14:13</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-43.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-18 13:14:13</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-44.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-18 23:21:16</h2>
+  <p>Users: 100</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 141023.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 500</p>
+
+<p>times: 500</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 146898</p>
+
+<p>The test started at 2014-12-18 23:21:16 and finished at 2014-12-19 01:21:15</p>
+
+<p>Therefore the total duration was around 120 minutes.</p>
+
+<p>The number of configurations by hour was around 1792 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-18 23:21:16</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-45.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-18 23:21:16</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-46.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-19 23:29:51</h2>
+  <p>Users: 100</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 141023.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 500</p>
+
+<p>times: 500</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 183255</p>
+
+<p>The test started at 2014-12-19 23:29:51 and finished at 2014-12-20 01:29:53</p>
+
+<p>Therefore the total duration was around 120 minutes.</p>
+
+<p>The number of configurations by hour was around 2234 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-19 23:29:51</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-47.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2014-12-19 23:29:51</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-48.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2015-01-06 12:36:35</h2>
+  <p>Users: 100</p>
+
+<p>Model: KB_GCR_NW_CB</p>
+
+<p>Version: 141023.0</p>
+
+<p>defaultValues: 20</p>
+
+<p>autounset: true</p>
+
+<p>setDefaults: unknown</p>
+
+<p>ramup: 500</p>
+
+<p>times: 500</p>
+
+<p>Errors: 0</p>
+
+<p>Clicks: 184130</p>
+
+<p>The test started at 2015-01-06 12:36:35 and finished at 2015-01-06 14:36:36</p>
+
+<p>Therefore the total duration was around 120 minutes.</p>
+
+<p>The number of configurations by hour was around 2245 </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2015-01-06 12:36:35</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-49.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+<section class='class' data-state='' id='id' data-background=''>
+  <h2>Test case 2015-01-06 12:36:35</h2>
+  <p><img src="assets/fig/unnamed-chunk-13-50.png" alt="plot of chunk unnamed-chunk-13"> </p>
+
+</section>
+    </div>
+  </div>
+</body>
+  <script src="libraries/frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="libraries/frameworks/revealjs/js/reveal.min.js"></script>
+  <script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    theme: Reveal.getQueryHash().theme || 'default', 
+    transition: Reveal.getQueryHash().transition || 'default', 
+    dependencies: [
+    // Cross-browser shim that fully implements classList -
+    // https://github.com/eligrey/classList.js/
+      { src: 'libraries/frameworks/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList;}},
+      // Zoom in and out with Alt+click
+      { src: 'libraries/frameworks/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Speaker notes
+      { src: 'libraries/frameworks/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Remote control your reveal.js presentation using a touch device
+      //{ src: 'libraries/frameworks/revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+  });
+  </script>  <!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>
